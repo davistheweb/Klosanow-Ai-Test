@@ -108,7 +108,7 @@ const Chatbot: React.FC = () => {
                   : "bg-card border border-border rounded-tl-md"
               }`}
             >
-              <p className="text-sm leading-relaxed">{msg.text}</p>
+              <p className="text-sm leading-relaxed" dangerouslySetInnerHTML={{__html: msg.text}} />
             </div>
           </div>
         ))}
