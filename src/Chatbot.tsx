@@ -4,6 +4,7 @@ import type React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Send, Bot, User } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 type Message = {
   sender: "user" | "bot";
@@ -108,7 +109,11 @@ const Chatbot: React.FC = () => {
                   : "bg-card border border-border rounded-tl-md"
               }`}
             >
-              <p className="text-sm leading-relaxed" dangerouslySetInnerHTML={{__html: msg.text}} />
+              <ReactMarkdown>{msg.text.replace(/\n/g, "<br/>")}</ReactMarkdown>
+              {/* <p
+                className="text-sm leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: msg.text }}
+              /> */}
             </div>
           </div>
         ))}
