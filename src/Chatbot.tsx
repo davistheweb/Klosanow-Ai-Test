@@ -114,7 +114,7 @@ const Chatbot: React.FC = () => {
               <p
                 className="text-sm leading-relaxed"
                 dangerouslySetInnerHTML={{
-                  __html: msg.text.replace(/\n/g, "<br/>"),
+                  __html: msg.text,
                 }}
               />
             </div>
