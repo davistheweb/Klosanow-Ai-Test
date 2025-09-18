@@ -109,13 +109,14 @@ const Chatbot: React.FC = () => {
                   : "bg-card border border-border rounded-tl-md"
               }`}
             >
-              
-                <p>{msg.text.replace(/\n/g, "<br/>")}</p>
-          
-              {/* <p
+              {/* <p>{msg.text.replace(/\n/g, "<br/>")}</p> */}
+
+              <p
                 className="text-sm leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: msg.text }}
-              /> */}
+                dangerouslySetInnerHTML={{
+                  __html: msg.text.replace(/\n/g, "<br/>"),
+                }}
+              />
             </div>
           </div>
         ))}
