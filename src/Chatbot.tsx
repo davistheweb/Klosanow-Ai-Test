@@ -4,7 +4,8 @@ import type React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Send, Bot, User } from "lucide-react";
-// import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
+import rehypeSanitize from "rehype-sanitize";
 
 type Message = {
   sender: "user" | "bot";
@@ -110,13 +111,15 @@ const Chatbot: React.FC = () => {
               }`}
             >
               {/* <p>{msg.text.replace(/\n/g, "<br/>")}</p> */}
-
-              <p
+              {/* <p
                 className="text-sm leading-relaxed"
                 dangerouslySetInnerHTML={{
                   __html: msg.text,
                 }}
-              />
+              /> */}
+              <ReactMarkdown rehypePlugins={[rehypeSanitize]}>
+                {msg.text}
+              </ReactMarkdown>
             </div>
           </div>
         ))}
